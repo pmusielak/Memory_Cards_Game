@@ -1,0 +1,11 @@
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\bin\Debug\Memory_Cards.exe.config
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\bin\Debug\Memory_Cards.exe
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\bin\Debug\Memory_Cards.pdb
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.csproj.AssemblyReference.cache
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.csproj.SuggestedBindingRedirects.cache
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.Form1.resources
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.Properties.Resources.resources
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.csproj.GenerateResource.cache
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.csproj.CoreCompileInputs.cache
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.exe
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.pdb
