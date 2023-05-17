@@ -9,3 +9,5 @@ C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory
 C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.csproj.CoreCompileInputs.cache
 C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.exe
 C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.pdb
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.Form2.resources
+C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\Memory_Cards\obj\Debug\Memory_Cards.Form3.resources
