@@ -12,6 +12,7 @@ namespace Memory_Cards
 {
     public partial class Form1 : Form
     {
+        int size;
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace Memory_Cards
         {
             if (checkBox3.Checked)
             {
+                size = 1;
                 checkBox4.Checked = false;
                 checkBox5.Checked = false;
             }
@@ -51,6 +53,7 @@ namespace Memory_Cards
         {
             if (checkBox4.Checked)
             {
+                size = 2;
                 checkBox3.Checked = false;
                 checkBox5.Checked = false;
             }
@@ -60,6 +63,7 @@ namespace Memory_Cards
         {
             if (checkBox5.Checked)
             {
+                size = 3;
                 checkBox3.Checked = false;
                 checkBox4.Checked = false;
             }
@@ -73,7 +77,7 @@ namespace Memory_Cards
         private void button1_Click(object sender, EventArgs e)
         {
             
-            var form3 = new Form3();
+            Form3 form3 = new Form3(size);
             form3.Closed += (s, args) => this.Close();
             form3.Show();
             this.Hide();
