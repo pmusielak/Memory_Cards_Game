@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -75,7 +76,8 @@ namespace Memory_Cards
                 picA = sender as PictureBox;
                 if (picA.Tag != null && picA.Enabled==true)
                 {
-                    picA.Image = Properties.Resources._1;
+                    string a = @"C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\images\1.jpeg";
+                    picA.Image = Image.FromFile(@"..\..\..\images\" + (string)picA.Tag + ".jpeg");
                     picA.Enabled = false;
                     firstChoice = (string)picA.Tag;
                 }
@@ -85,7 +87,7 @@ namespace Memory_Cards
                 picB = sender as PictureBox;
                 if (picB.Tag != null && picB.Enabled == true)
                 {
-                    picB.Image = Properties.Resources._1;
+                    picB.Image = Image.FromFile(@"..\..\..\images\" + (string)picB.Tag + ".jpeg");
                     picB.Enabled = false;
                     secondChoice = (string)picB.Tag;
                     Thread.Sleep(2000);
