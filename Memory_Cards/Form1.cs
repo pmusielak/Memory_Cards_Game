@@ -69,5 +69,14 @@ namespace Memory_Cards
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            var form3 = new Form3();
+            form3.Closed += (s, args) => this.Close();
+            form3.Show();
+            this.Hide();
+        }
     }
 }

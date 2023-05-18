@@ -14,51 +14,78 @@ namespace Memory_Cards
 {
     public partial class Form3 : Form
     {
-        List<int> numbers = new List<int> { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+        List<int> numbers = new List<int> { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
         string firstChoice;
         string secondChoice;
-        int tries;
         List<PictureBox> pictures = new List<PictureBox>();
         PictureBox picA;
         PictureBox picB;
-        int totalTime = 30;
-        int countDownTime;
         bool gameOver = false;
         public Form3()
         {
             InitializeComponent();
-            LoadPictures();
         }
         private void RestartGameEvent(object sender, EventArgs e)
         {
             RandomizeCards();
         }
-        private void LoadPictures()
+        private void LoadPictures4x4()
         {
             int leftPos = 20;
             int topPos = 20;
             int rows = 0;
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 16; i++)
             {
                 PictureBox newPic = new PictureBox();
-                newPic.Height = 50;
-                newPic.Width = 50;
+                newPic.Height = 130;
+                newPic.Width = 100;
                 newPic.BackColor = Color.LightGray;
                 newPic.SizeMode = PictureBoxSizeMode.StretchImage;
                 newPic.Click += NewPic_Click;
                 pictures.Add(newPic);
-                if (rows < 3)
+                if (rows < 4)
                 {
                     rows++;
                     newPic.Left = leftPos;
                     newPic.Top = topPos;
                     this.Controls.Add(newPic);
-                    leftPos = leftPos + 60;
+                    leftPos = leftPos + 110;
                 }
-                if (rows == 3)
+                if (rows == 4)
                 {
                     leftPos = 20;
-                    topPos += 60;
+                    topPos += 140;
+                    rows = 0;
+                }
+            }
+            RandomizeCards();
+        }
+        private void LoadPictures6x6()
+        {
+            int leftPos = 20;
+            int topPos = 20;
+            int rows = 0;
+            for (int i = 0; i < 36; i++)
+            {
+                PictureBox newPic = new PictureBox();
+                newPic.Height = 130;
+                newPic.Width = 100;
+                newPic.BackColor = Color.LightGray;
+                newPic.SizeMode = PictureBoxSizeMode.StretchImage;
+                newPic.Click += NewPic_Click;
+                pictures.Add(newPic);
+                if (rows < 6)
+                {
+                    rows++;
+                    newPic.Left = leftPos;
+                    newPic.Top = topPos;
+                    this.Controls.Add(newPic);
+                    leftPos = leftPos + 110;
+                }
+                if (rows == 6)
+                {
+                    leftPos = 20;
+                    topPos += 140;
                     rows = 0;
                 }
             }
@@ -76,7 +103,6 @@ namespace Memory_Cards
                 picA = sender as PictureBox;
                 if (picA.Tag != null && picA.Enabled==true)
                 {
-                    string a = @"C:\Users\Trupek\Documents\Labolatoria\Memory_Cards\images\1.jpeg";
                     picA.Image = Image.FromFile(@"..\..\..\images\" + (string)picA.Tag + ".jpeg");
                     picA.Enabled = false;
                     firstChoice = (string)picA.Tag;
@@ -141,7 +167,7 @@ namespace Memory_Cards
         private void GameOver(string msg)
         {
             gameOver = true;
-            MessageBox.Show(msg + " Click Restart to Play Again.", "Moo Says: ");
+            MessageBox.Show(msg + " Click Restart to Play Again.");
         }
 
 
