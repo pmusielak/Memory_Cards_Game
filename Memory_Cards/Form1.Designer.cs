@@ -93,9 +93,9 @@
             this.checkBox5.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox5.Location = new System.Drawing.Point(281, 222);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(43, 17);
+            this.checkBox5.Size = new System.Drawing.Size(49, 17);
             this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "8x8";
+            this.checkBox5.Text = "6x10";
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
@@ -149,6 +149,7 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

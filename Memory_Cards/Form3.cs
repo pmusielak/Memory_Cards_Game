@@ -14,7 +14,7 @@ namespace Memory_Cards
 {
     public partial class Form3 : Form
     {
-        List<int> numbers = new List<int> { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32 };
+        List<int> numbers = new List<int> { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30};
         string firstChoice;
         string secondChoice;
         List<PictureBox> pictures = new List<PictureBox>();
@@ -24,7 +24,18 @@ namespace Memory_Cards
         public Form3(int size)
         {
             InitializeComponent();
-            LoadPictures4x4();
+            switch (size)
+            {
+                case 1:
+                    LoadPictures4x4();
+                    break;
+                case 2:
+                    LoadPictures6x6();
+                    break;
+                case 3:
+                    LoadPictures6x10();
+                    break;
+            }
         }
         private void RestartGameEvent(object sender, EventArgs e)
         {
@@ -32,7 +43,8 @@ namespace Memory_Cards
         }
         private void LoadPictures4x4()
         {
-            for (int i=16; i<64; i++ )
+            Size = new Size(600, 620);
+            for (int i=16; i<60; i++ )
             {
                 numbers.Remove(i);
             }
@@ -67,10 +79,11 @@ namespace Memory_Cards
         }
         private void LoadPictures6x6()
         {
+            Size = new Size(850, 900);
             int leftPos = 20;
             int topPos = 20;
             int rows = 0;
-            for (int i = 36; i < 64; i++)
+            for (int i = 36; i < 60; i++)
             {
                 numbers.Remove(i);
             }
@@ -92,6 +105,38 @@ namespace Memory_Cards
                     leftPos = leftPos + 110;
                 }
                 if (rows == 6)
+                {
+                    leftPos = 20;
+                    topPos += 140;
+                    rows = 0;
+                }
+            }
+            RandomizeCards();
+        }
+        private void LoadPictures6x10()
+        {
+            Size = new Size(1300, 900);
+            int leftPos = 20;
+            int topPos = 20;
+            int rows = 0;
+            for (int i = 0; i < 60; i++)
+            {
+                PictureBox newPic = new PictureBox();
+                newPic.Height = 130;
+                newPic.Width = 100;
+                newPic.BackColor = Color.LightGray;
+                newPic.SizeMode = PictureBoxSizeMode.StretchImage;
+                newPic.Click += NewPic_Click;
+                pictures.Add(newPic);
+                if (rows < 10)
+                {
+                    rows++;
+                    newPic.Left = leftPos;
+                    newPic.Top = topPos;
+                    this.Controls.Add(newPic);
+                    leftPos = leftPos + 110;
+                }
+                if (rows == 10)
                 {
                     leftPos = 20;
                     topPos += 140;
