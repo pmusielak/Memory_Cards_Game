@@ -37,10 +37,6 @@ namespace Memory_Cards
                     break;
             }
         }
-        private void RestartGameEvent(object sender, EventArgs e)
-        {
-            RandomizeCards();
-        }
         private void LoadPictures4x4()
         {
             Size = new Size(600, 620);
@@ -75,6 +71,16 @@ namespace Memory_Cards
                     rows = 0;
                 }
             }
+            TextBox moves = new TextBox();
+            moves.Height = 40;
+            moves.Width = 100;
+            moves.Text = "Moves: 0";
+            moves.Left = 470;
+            moves.Top = 20;
+            moves.BorderStyle = BorderStyle.None;
+            moves.ReadOnly = true;
+            this.Controls.Add(moves);
+            
             RandomizeCards();
         }
         private void LoadPictures6x6()
