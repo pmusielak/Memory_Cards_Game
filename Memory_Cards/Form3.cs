@@ -17,7 +17,10 @@ namespace Memory_Cards
         List<int> numbers = new List<int> { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30};
         string firstChoice;
         string secondChoice;
+        bool turn=true;
         int moves = 0;
+        int points1 = 0;
+        int points2 = 0;
         List<PictureBox> pictures = new List<PictureBox>();
         PictureBox picA;
         PictureBox picB;
@@ -40,7 +43,7 @@ namespace Memory_Cards
         }
         private void LoadPictures4x4(int players)
         {
-            Size = new Size(600, 620);
+            Size = new Size(615, 640);
             for (int i=16; i<60; i++ )
             {
                 numbers.Remove(i);
@@ -77,16 +80,51 @@ namespace Memory_Cards
                 case 1:
                     TextBox moves = new TextBox();
                     moves.Tag = "1player";
-                    moves.Name = "Moves";
+                    moves.Name = "Moves1";
                     moves.Height = 40;
-                    moves.Width = 100;
+                    moves.Width = 120;
                     moves.Text = "Moves: 0";
-                    moves.Left = 470;
+                    moves.Left = 455;
                     moves.Top = 20;
                     moves.BorderStyle = BorderStyle.None;
+                    moves.Font = new Font("Microsoft Sans Serif", 21);
                     moves.ReadOnly = true;
                     this.Controls.Add(moves);
                     break;
+                case 2:
+                    {
+                        topPos = 20;
+                        leftPos = 455;
+                        TextBox player_turn = new TextBox();
+                        player_turn.Name = "Player_turn";
+                        player_turn.Height = 40;
+                        player_turn.Width = 140;
+                        player_turn.Text = "1st player";
+                        player_turn.Left = leftPos;
+                        player_turn.Top = topPos;
+                        player_turn.ReadOnly = true;
+                        player_turn.BorderStyle = BorderStyle.None;
+                        player_turn.Font = new Font("Microsoft Sans Serif", 21);
+                        this.Controls.Add(player_turn);
+                        for (int i = 1; i < 3; i++)
+                        {
+                            topPos += 50;
+                            TextBox moves1 = new TextBox();
+                            moves1.Name = "Moves"+i;
+                            moves1.Tag = "2player";
+                            moves1.Height = 40;
+                            moves1.Width = 150;
+                            moves1.Text = "Player"+i+": 0";
+                            moves1.Left = leftPos;
+                            moves1.Top = topPos;
+                            moves1.BorderStyle = BorderStyle.None;
+                            moves1.Font = new Font("Microsoft Sans Serif", 21);
+                            moves1.ReadOnly = true;
+                            this.Controls.Add(moves1);
+                        }
+                        break;
+                    }
+
             }
             
             RandomizeCards();
@@ -130,7 +168,7 @@ namespace Memory_Cards
                 case 1:
                     TextBox moves = new TextBox();
                     moves.Tag = "1player";
-                    moves.Name = "Moves";
+                    moves.Name = "Moves1";
                     moves.Height = 40;
                     moves.Width = 130;
                     moves.Text = "Moves: 0";
@@ -141,6 +179,39 @@ namespace Memory_Cards
                     moves.ReadOnly = true;
                     this.Controls.Add(moves);
                     break;
+                case 2:
+                    {
+                        topPos = 20;
+                        leftPos = 685;
+                        TextBox player_turn = new TextBox();
+                        player_turn.Name = "Player_turn";
+                        player_turn.Height = 40;
+                        player_turn.Width = 140;
+                        player_turn.Text = "1st player";
+                        player_turn.Left = leftPos;
+                        player_turn.Top = topPos;
+                        player_turn.ReadOnly = true;
+                        player_turn.BorderStyle = BorderStyle.None;
+                        player_turn.Font = new Font("Microsoft Sans Serif", 24);
+                        this.Controls.Add(player_turn);
+                        for (int i = 1; i < 3; i++)
+                        {
+                            topPos += 50;
+                            TextBox moves1 = new TextBox();
+                            moves1.Name = "Moves"+i;
+                            moves1.Tag = "2player";
+                            moves1.Height = 40;
+                            moves1.Width = 150;
+                            moves1.Text = "Player"+i+": 0";
+                            moves1.Left = leftPos;
+                            moves1.Top = topPos;
+                            moves1.BorderStyle = BorderStyle.None;
+                            moves1.Font = new Font("Microsoft Sans Serif", 24);
+                            moves1.ReadOnly = true;
+                            this.Controls.Add(moves1);
+                        }
+                        break;
+                    }
             }
             RandomizeCards();
         }
@@ -179,7 +250,7 @@ namespace Memory_Cards
                 case 1:
                     TextBox moves = new TextBox();
                     moves.Tag = "1player";
-                    moves.Name = "Moves";
+                    moves.Name = "Moves1";
                     moves.Height = 40;
                     moves.Width = 130;
                     moves.Text = "Moves: 0";
@@ -190,6 +261,39 @@ namespace Memory_Cards
                     moves.ReadOnly = true;
                     this.Controls.Add(moves);
                     break;
+                case 2:
+                    {
+                        topPos = 20;
+                        leftPos = 1125;
+                        TextBox player_turn = new TextBox();
+                        player_turn.Name = "Player_turn";
+                        player_turn.Height = 40;
+                        player_turn.Width = 140;
+                        player_turn.Text = "1st player";
+                        player_turn.Left = leftPos;
+                        player_turn.Top = topPos;
+                        player_turn.ReadOnly = true;
+                        player_turn.BorderStyle = BorderStyle.None;      
+                        player_turn.Font = new Font("Microsoft Sans Serif", 24);
+                        this.Controls.Add(player_turn);
+                        for (int i = 1; i < 3; i++)
+                        {
+                            topPos += 50;
+                            TextBox moves1 = new TextBox();
+                            moves1.Name = "Moves" + i;
+                            moves1.Tag = "2player";
+                            moves1.Height = 40;
+                            moves1.Width = 150;
+                            moves1.Text = "Player" + i + ": 0";
+                            moves1.Left = leftPos;
+                            moves1.Top = topPos;
+                            moves1.BorderStyle = BorderStyle.None;
+                            moves1.Font = new Font("Microsoft Sans Serif", 24);
+                            moves1.ReadOnly = true;
+                            this.Controls.Add(moves1);
+                        }
+                        break;
+                    }
             }
             RandomizeCards();
         }
@@ -238,17 +342,46 @@ namespace Memory_Cards
         }
         private void CheckPictures(PictureBox A, PictureBox B)
         {
-            TextBox move_counter = (TextBox)this.Controls["Moves"];
+            TextBox move_counter = (TextBox)this.Controls["Moves1"];
             if (firstChoice == secondChoice)
             {
                 A.Tag = null;
                 B.Tag = null;
+                if((string)move_counter.Tag == "2player")
+                {
+                    if(turn)
+                    {
+                        TextBox move1 = (TextBox)this.Controls["Moves1"];
+                        points1++;
+                        move1.Text = "Player1: " + points1;
+                    }
+                    else
+                    {
+                        TextBox move1 = (TextBox)this.Controls["Moves2"];
+                        points2++;
+                        move1.Text = "Player2: " + points2;
+                    }
+                }
             }
             else if((string)move_counter.Tag=="1player")
             {
                 moves++;
                 string text = "Moves: " + moves;
                 move_counter.Text = text;
+            }
+            else
+            {
+                TextBox pturn = (TextBox)this.Controls["Player_turn"];
+                if(turn)
+                {
+                    turn = !turn;
+                    pturn.Text = "2nd player";
+                }
+                else
+                {
+                    turn = !turn;
+                    pturn.Text = "1st player";
+                }
             }
             A.Enabled = true;
             B.Enabled = true;
