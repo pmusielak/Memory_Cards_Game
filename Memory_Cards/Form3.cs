@@ -43,7 +43,7 @@ namespace Memory_Cards
         }
         private void LoadPictures4x4(int players)
         {
-            Size = new Size(615, 640);
+            Size = new Size(640, 640);
             for (int i=16; i<60; i++ )
             {
                 numbers.Remove(i);
@@ -78,18 +78,8 @@ namespace Memory_Cards
             switch (players)
             {
                 case 1:
-                    TextBox moves = new TextBox();
-                    moves.Tag = "1player";
-                    moves.Name = "Moves1";
-                    moves.Height = 40;
-                    moves.Width = 120;
-                    moves.Text = "Moves: 0";
-                    moves.Left = 455;
-                    moves.Top = 20;
-                    moves.BorderStyle = BorderStyle.None;
-                    moves.Font = new Font("Microsoft Sans Serif", 21);
-                    moves.ReadOnly = true;
-                    this.Controls.Add(moves);
+                    leftPos = 455;
+                    SinglePlayer(leftPos);
                     break;
                 case 2:
                     {
@@ -166,18 +156,8 @@ namespace Memory_Cards
             switch (players)
             {
                 case 1:
-                    TextBox moves = new TextBox();
-                    moves.Tag = "1player";
-                    moves.Name = "Moves1";
-                    moves.Height = 40;
-                    moves.Width = 130;
-                    moves.Text = "Moves: 0";
-                    moves.Left = 685;
-                    moves.Top = 20;
-                    moves.BorderStyle = BorderStyle.None;
-                    moves.Font = new Font("Microsoft Sans Serif", 24);
-                    moves.ReadOnly = true;
-                    this.Controls.Add(moves);
+                    leftPos = 685;
+                    SinglePlayer(leftPos);
                     break;
                 case 2:
                     {
@@ -186,7 +166,7 @@ namespace Memory_Cards
                         TextBox player_turn = new TextBox();
                         player_turn.Name = "Player_turn";
                         player_turn.Height = 40;
-                        player_turn.Width = 140;
+                        player_turn.Width = 160;
                         player_turn.Text = "1st player";
                         player_turn.Left = leftPos;
                         player_turn.Top = topPos;
@@ -248,18 +228,8 @@ namespace Memory_Cards
             switch (players)
             {
                 case 1:
-                    TextBox moves = new TextBox();
-                    moves.Tag = "1player";
-                    moves.Name = "Moves1";
-                    moves.Height = 40;
-                    moves.Width = 130;
-                    moves.Text = "Moves: 0";
-                    moves.Left = 1125;
-                    moves.Top = 20;
-                    moves.BorderStyle = BorderStyle.None;
-                    moves.Font = new Font("Microsoft Sans Serif", 24);
-                    moves.ReadOnly = true;
-                    this.Controls.Add(moves);
+                    leftPos = 1125;
+                    SinglePlayer(leftPos);
                     break;
                 case 2:
                     {
@@ -296,6 +266,25 @@ namespace Memory_Cards
                     }
             }
             RandomizeCards();
+        }
+        private void SinglePlayer(int leftPos)
+        {
+            TextBox moves = new TextBox();
+            moves.Tag = "1player";
+            moves.Name = "Moves1";
+            moves.Height = 40;
+            moves.Width = 150;
+            moves.Text = "Moves: 0";
+            moves.Left = leftPos;
+            moves.Top = 20;
+            moves.BorderStyle = BorderStyle.None;
+            moves.Font = new Font("Microsoft Sans Serif", 24);
+            moves.ReadOnly = true;
+            this.Controls.Add(moves);
+        }
+        private void DualPlayers()
+        {
+
         }
         private void NewPic_Click(object sender, EventArgs e)
         {
