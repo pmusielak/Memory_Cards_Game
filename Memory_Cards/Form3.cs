@@ -17,27 +17,28 @@ namespace Memory_Cards
         List<int> numbers = new List<int> { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30};
         string firstChoice;
         string secondChoice;
+        int moves = 0;
         List<PictureBox> pictures = new List<PictureBox>();
         PictureBox picA;
         PictureBox picB;
         bool gameOver = false;
-        public Form3(int size)
+        public Form3(int size, int players)
         {
             InitializeComponent();
             switch (size)
             {
                 case 1:
-                    LoadPictures4x4();
+                    LoadPictures4x4(players);
                     break;
                 case 2:
-                    LoadPictures6x6();
+                    LoadPictures6x6(players);
                     break;
                 case 3:
-                    LoadPictures6x10();
+                    LoadPictures6x10(players);
                     break;
             }
         }
-        private void LoadPictures4x4()
+        private void LoadPictures4x4(int players)
         {
             Size = new Size(600, 620);
             for (int i=16; i<60; i++ )
@@ -71,19 +72,26 @@ namespace Memory_Cards
                     rows = 0;
                 }
             }
-            TextBox moves = new TextBox();
-            moves.Height = 40;
-            moves.Width = 100;
-            moves.Text = "Moves: 0";
-            moves.Left = 470;
-            moves.Top = 20;
-            moves.BorderStyle = BorderStyle.None;
-            moves.ReadOnly = true;
-            this.Controls.Add(moves);
+            switch (players)
+            {
+                case 1:
+                    TextBox moves = new TextBox();
+                    moves.Tag = "1player";
+                    moves.Name = "Moves";
+                    moves.Height = 40;
+                    moves.Width = 100;
+                    moves.Text = "Moves: 0";
+                    moves.Left = 470;
+                    moves.Top = 20;
+                    moves.BorderStyle = BorderStyle.None;
+                    moves.ReadOnly = true;
+                    this.Controls.Add(moves);
+                    break;
+            }
             
             RandomizeCards();
         }
-        private void LoadPictures6x6()
+        private void LoadPictures6x6(int players)
         {
             Size = new Size(850, 900);
             int leftPos = 20;
@@ -117,9 +125,26 @@ namespace Memory_Cards
                     rows = 0;
                 }
             }
+            switch (players)
+            {
+                case 1:
+                    TextBox moves = new TextBox();
+                    moves.Tag = "1player";
+                    moves.Name = "Moves";
+                    moves.Height = 40;
+                    moves.Width = 130;
+                    moves.Text = "Moves: 0";
+                    moves.Left = 685;
+                    moves.Top = 20;
+                    moves.BorderStyle = BorderStyle.None;
+                    moves.Font = new Font("Microsoft Sans Serif", 24);
+                    moves.ReadOnly = true;
+                    this.Controls.Add(moves);
+                    break;
+            }
             RandomizeCards();
         }
-        private void LoadPictures6x10()
+        private void LoadPictures6x10(int players)
         {
             Size = new Size(1300, 900);
             int leftPos = 20;
@@ -148,6 +173,23 @@ namespace Memory_Cards
                     topPos += 140;
                     rows = 0;
                 }
+            }
+            switch (players)
+            {
+                case 1:
+                    TextBox moves = new TextBox();
+                    moves.Tag = "1player";
+                    moves.Name = "Moves";
+                    moves.Height = 40;
+                    moves.Width = 130;
+                    moves.Text = "Moves: 0";
+                    moves.Left = 1125;
+                    moves.Top = 20;
+                    moves.BorderStyle = BorderStyle.None;
+                    moves.Font = new Font("Microsoft Sans Serif", 24);
+                    moves.ReadOnly = true;
+                    this.Controls.Add(moves);
+                    break;
             }
             RandomizeCards();
         }
@@ -180,10 +222,6 @@ namespace Memory_Cards
                     CheckPictures(picA, picB);
                 }
             }
-            else
-            {
-                CheckPictures(picA, picB);
-            }
         }
         private void RandomizeCards()
         {
@@ -200,10 +238,17 @@ namespace Memory_Cards
         }
         private void CheckPictures(PictureBox A, PictureBox B)
         {
+            TextBox move_counter = (TextBox)this.Controls["Moves"];
             if (firstChoice == secondChoice)
             {
                 A.Tag = null;
                 B.Tag = null;
+            }
+            else if((string)move_counter.Tag=="1player")
+            {
+                moves++;
+                string text = "Moves: " + moves;
+                move_counter.Text = text;
             }
             A.Enabled = true;
             B.Enabled = true;
