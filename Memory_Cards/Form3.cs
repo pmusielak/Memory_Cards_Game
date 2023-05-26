@@ -44,8 +44,9 @@ namespace Memory_Cards
         private void LoadPictures4x4(int players)
         {
             Size = new Size(640, 640);
-            for (int i=16; i<60; i++ )
+            for (int i=9; i<31; i++ )
             {
+                numbers.Remove(i);
                 numbers.Remove(i);
             }
             int leftPos = 20;
@@ -98,8 +99,9 @@ namespace Memory_Cards
             int leftPos = 20;
             int topPos = 20;
             int rows = 0;
-            for (int i = 36; i < 60; i++)
+            for (int i = 19; i < 31; i++)
             {
+                numbers.Remove(i);
                 numbers.Remove(i);
             }
             for (int i = 0; i < 36; i++)
@@ -264,6 +266,10 @@ namespace Memory_Cards
         }
         private void RandomizeCards()
         {
+            foreach (int i in numbers)
+                {
+                Console.WriteLine(i);
+            }
             // randomise the original list
             var randomList = numbers.OrderBy(x => Guid.NewGuid()).ToList();
             // assign the random list to the original
