@@ -28,31 +28,55 @@ namespace Memory_Cards
         public Form3(int size, int players)
         {
             InitializeComponent();
+            int FormWidth;
+            int FormHeight;
+            int rows;
+            int i;
+            int j;
+            int move_counter_pos;
             switch (size)
             {
                 case 1:
-                    LoadPictures4x4(players);
+                    FormWidth = 640;
+                    FormHeight = 640;
+                    rows = 4;
+                    i=9;
+                    j=16;
+                    move_counter_pos = 455;
+                    LoadPictures(players, FormWidth, FormHeight, rows, i, j, move_counter_pos);
                     break;
                 case 2:
-                    LoadPictures6x6(players);
+                    FormWidth = 850;
+                    FormHeight = 900;
+                    rows = 6;
+                    i=19;
+                    j=36;
+                    move_counter_pos = 685;
+                    LoadPictures(players, FormWidth, FormHeight, rows, i, j, move_counter_pos);
                     break;
                 case 3:
-                    LoadPictures6x10(players);
+                    FormWidth = 1300;
+                    FormHeight = 900;
+                    rows = 10;
+                    i=36;
+                    j=60;
+                    move_counter_pos = 1125;
+                    LoadPictures(players, FormWidth, FormHeight, rows, i, j, move_counter_pos);
                     break;
             }
         }
-        private void LoadPictures4x4(int players)
+        private void LoadPictures(int players, int FormWidth, int FormHeight, int rows, int j, int cards, int move_counter_pos)
         {
-            Size = new Size(640, 640);
-            for (int i=9; i<31; i++ )
+            Size = new Size(FormWidth, FormHeight);
+            for (int i=j; i<31; i++ )
             {
                 numbers.Remove(i);
                 numbers.Remove(i);
             }
             int leftPos = 20;
             int topPos = 20;
-            int rows = 0;
-            for (int i = 0; i < 16; i++)
+            int current_rows = 0;
+            for (int i = 0; i < cards; i++)
             {
                 PictureBox newPic = new PictureBox();
                 newPic.Height = 130;
@@ -61,131 +85,34 @@ namespace Memory_Cards
                 newPic.SizeMode = PictureBoxSizeMode.StretchImage;
                 newPic.Click += NewPic_Click;
                 pictures.Add(newPic);
-                if (rows < 4)
+                if (current_rows < rows)
                 {
-                    rows++;
+                    current_rows++;
                     newPic.Left = leftPos;
                     newPic.Top = topPos;
                     this.Controls.Add(newPic);
                     leftPos = leftPos + 110;
                 }
-                if (rows == 4)
+                if (current_rows == rows)
                 {
                     leftPos = 20;
                     topPos += 140;
-                    rows = 0;
+                    current_rows = 0;
                 }
             }
             switch (players)
             {
                 case 1:
-                    leftPos = 455;
-                    SinglePlayer(leftPos);
+                    SinglePlayer(move_counter_pos);
                     break;
                 case 2:
                     {
-                        leftPos = 455;
-                        DualPlayers(leftPos);
+                        DualPlayers(move_counter_pos);
                         break;
                     }
 
             }
             
-            RandomizeCards();
-        }
-        private void LoadPictures6x6(int players)
-        {
-            Size = new Size(850, 900);
-            int leftPos = 20;
-            int topPos = 20;
-            int rows = 0;
-            for (int i = 19; i < 31; i++)
-            {
-                numbers.Remove(i);
-                numbers.Remove(i);
-            }
-            for (int i = 0; i < 36; i++)
-            {
-                PictureBox newPic = new PictureBox();
-                newPic.Height = 130;
-                newPic.Width = 100;
-                newPic.BackColor = Color.LightGray;
-                newPic.SizeMode = PictureBoxSizeMode.StretchImage;
-                newPic.Click += NewPic_Click;
-                pictures.Add(newPic);
-                if (rows < 6)
-                {
-                    rows++;
-                    newPic.Left = leftPos;
-                    newPic.Top = topPos;
-                    this.Controls.Add(newPic);
-                    leftPos = leftPos + 110;
-                }
-                if (rows == 6)
-                {
-                    leftPos = 20;
-                    topPos += 140;
-                    rows = 0;
-                }
-            }
-            switch (players)
-            {
-                case 1:
-                    leftPos = 685;
-                    SinglePlayer(leftPos);
-                    break;
-                case 2:
-                    {
-                        leftPos = 685;
-                        DualPlayers(leftPos);
-                        break;
-                    }
-            }
-            RandomizeCards();
-        }
-        private void LoadPictures6x10(int players)
-        {
-            Size = new Size(1300, 900);
-            int leftPos = 20;
-            int topPos = 20;
-            int rows = 0;
-            for (int i = 0; i < 60; i++)
-            {
-                PictureBox newPic = new PictureBox();
-                newPic.Height = 130;
-                newPic.Width = 100;
-                newPic.BackColor = Color.LightGray;
-                newPic.SizeMode = PictureBoxSizeMode.StretchImage;
-                newPic.Click += NewPic_Click;
-                pictures.Add(newPic);
-                if (rows < 10)
-                {
-                    rows++;
-                    newPic.Left = leftPos;
-                    newPic.Top = topPos;
-                    this.Controls.Add(newPic);
-                    leftPos = leftPos + 110;
-                }
-                if (rows == 10)
-                {
-                    leftPos = 20;
-                    topPos += 140;
-                    rows = 0;
-                }
-            }
-            switch (players)
-            {
-                case 1:
-                    leftPos = 1125;
-                    SinglePlayer(leftPos);
-                    break;
-                case 2:
-                    {
-                        leftPos = 1125;
-                        DualPlayers(leftPos);
-                        break;
-                    }
-            }
             RandomizeCards();
         }
         private void SinglePlayer(int leftPos)
@@ -337,16 +264,22 @@ namespace Memory_Cards
                     pics.Image = Properties.Resources.question_mark;
                 }
             }
-            // now lets check if all of the items have been solved
             if (pictures.All(o => o.Tag == pictures[0].Tag))
             {
-                GameOver("Great Work, You Win!!!!");
+                GameOver();
             }
         }
-        private void GameOver(string msg)
+        private void GameOver()
         {
             gameOver = true;
-            MessageBox.Show(msg + " Click Restart to Play Again.");
+            DialogResult result = MessageBox.Show("Congrats You Win!!!", "GameOver", MessageBoxButtons.OK);
+            if (result == DialogResult.OK)
+            {
+                Form1 form1 = new Form1();
+                form1.Show();
+                form1.Closed += (s, args) => this.Close();
+                this.Hide();
+            }
         }
 
 
