@@ -18,13 +18,13 @@ namespace Memory_Cards
         string firstChoice;
         string secondChoice;
         bool turn=true;
+        bool move_ended=true;
         int moves = 0;
         int points1 = 0;
         int points2 = 0;
         List<PictureBox> pictures = new List<PictureBox>();
         PictureBox picA;
         PictureBox picB;
-        bool gameOver = false;
         public Form3(int size, int players)
         {
             InitializeComponent();
@@ -161,11 +161,10 @@ namespace Memory_Cards
                 this.Controls.Add(moves1);
             }
         }
-        private void NewPic_Click(object sender, EventArgs e)
+        async private void NewPic_Click(object sender, EventArgs e)
         {
-            if (gameOver)
+            if (move_ended == false)
             {
-                // dont register a click if the game is over
                 return;
             }
             if (firstChoice == null)
@@ -186,27 +185,22 @@ namespace Memory_Cards
                     picB.Image = Image.FromFile(@"..\..\..\images\" + (string)picB.Tag + ".jpeg");
                     picB.Enabled = false;
                     secondChoice = (string)picB.Tag;
-                    Thread.Sleep(2000);
+                    move_ended = false;
+                    await Task.Delay(2000);
                     CheckPictures(picA, picB);
+                    move_ended = true;
                 }
             }
         }
         private void RandomizeCards()
         {
-            foreach (int i in numbers)
-                {
-                Console.WriteLine(i);
-            }
-            // randomise the original list
             var randomList = numbers.OrderBy(x => Guid.NewGuid()).ToList();
-            // assign the random list to the original
             numbers = randomList;
             for (int i = 0; i < pictures.Count; i++)
             {
                 pictures[i].Image = Properties.Resources.question_mark;
                 pictures[i].Tag = numbers[i].ToString();
             }
-            gameOver = false;
         }
         private void CheckPictures(PictureBox A, PictureBox B)
         {
@@ -271,7 +265,6 @@ namespace Memory_Cards
         }
         private void GameOver()
         {
-            gameOver = true;
             DialogResult result = MessageBox.Show("Congrats You Win!!!", "GameOver", MessageBoxButtons.OK);
             if (result == DialogResult.OK)
             {
