@@ -265,13 +265,53 @@ namespace Memory_Cards
         }
         private void GameOver()
         {
-            DialogResult result = MessageBox.Show("Congrats You Win!!!", "GameOver", MessageBoxButtons.OK);
-            if (result == DialogResult.OK)
+            TextBox players = (TextBox)this.Controls["Moves1"];
+            if ((string)players.Tag == "1player")
             {
-                Form1 form1 = new Form1();
-                form1.Show();
-                form1.Closed += (s, args) => this.Close();
-                this.Hide();
+                DialogResult result = MessageBox.Show("Congrats You Won In " + moves + " Moves!!!", "GameOver", MessageBoxButtons.OK);
+                if (result == DialogResult.OK)
+                {
+                    Form1 form1 = new Form1();
+                    form1.Show();
+                    form1.Closed += (s, args) => this.Close();
+                    this.Hide();
+                }
+            }
+            else
+            {
+                if (points1 > points2)
+                {
+                    DialogResult result = MessageBox.Show("Player1 Won With " + points1 + " Points!!!", "GameOver", MessageBoxButtons.OK);
+                    if (result == DialogResult.OK)
+                    {
+                        Form1 form1 = new Form1();
+                        form1.Show();
+                        form1.Closed += (s, args) => this.Close();
+                        this.Hide();
+                    }
+                }
+                else if (points2 > points1)
+                {
+                    DialogResult result = MessageBox.Show("Player2 Won With " + points2 + " Points!!!", "GameOver", MessageBoxButtons.OK);
+                    if (result == DialogResult.OK)
+                    {
+                        Form1 form1 = new Form1();
+                        form1.Show();
+                        form1.Closed += (s, args) => this.Close();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("It's a Draw!!!", "GameOver", MessageBoxButtons.OK);
+                    if (result == DialogResult.OK)
+                    {
+                        Form1 form1 = new Form1();
+                        form1.Show();
+                        form1.Closed += (s, args) => this.Close();
+                        this.Hide();
+                    }
+                }
             }
         }
 
