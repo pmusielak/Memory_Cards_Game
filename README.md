@@ -6,8 +6,8 @@ A game training your memory. The rules are simple: flip over cards to reveal the
 * Seperate gamemode to compete with a friend
 * Move counter
 ## Technologies
-C# (win forms)
-.NET Framework 4.7.2
+* C# (win forms)
+* .NET Framework 4.7.2
 ## Launch
 To launch the project you need `Microsoft Visual Studio`.  
 
