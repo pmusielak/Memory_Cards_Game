@@ -4,15 +4,18 @@ A game training your memory. The rules are simple: flip over cards to reveal the
 ## Features
 * You can choose the difficulty level which changes the amount of matching pairs you have to find
   * Easy  
-  <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/easy.png"/>  
+  <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/easy.png"/>
+
   * Medium  
   * <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/medium.png"/>
-  * Hard
-  * <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/hard.png"/>
+
+  * Hard  
+  * <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/hard.png"/>  
 * Seperate gamemode to compete with a friend
 * Move counter
 * Menu  
-<img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/game_menu.png"/>  
+<img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/game_menu.png"/>
+
 ## Technologies
 * C# (win forms)
 * .NET Framework 4.7.2
