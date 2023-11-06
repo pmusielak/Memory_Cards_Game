@@ -9,6 +9,6 @@ A game training your memory. The rules are simple: flip over cards to reveal the
 C# (win forms)
 .NET Framework 4.7.2
 ## Launch
-To launch the project you need `Microsoft Visual Studio`.
-Download the project from [here](https://github.com/pmusielak/Memory_Cards_Game/archive/refs/heads/master.zip)
+To launch the project you need `Microsoft Visual Studio`.  
+Download the project from [here](https://github.com/pmusielak/Memory_Cards_Game/archive/refs/heads/master.zip)  
 Open the `Memory_Cards.sln` file using `Microsoft Visual Studio` and click the `Start` button at the top.
