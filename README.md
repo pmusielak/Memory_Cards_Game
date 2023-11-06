@@ -2,9 +2,9 @@
 ## About
 A game training your memory. The rules are simple: flip over cards to reveal their hidden images and match pairs by remembering their positions. Try to find all the pairs with the fewest moves possible.
 ## Features
-*You can choose the difficulty level which changes the amount of matching pairs you have to find
-*Seperate gamemode to compete with a friend
-*Move counter
+* You can choose the difficulty level which changes the amount of matching pairs you have to find
+* Seperate gamemode to compete with a friend
+* Move counter
 ## Technologies
 C# (win forms)
 .NET Framework 4.7.2
