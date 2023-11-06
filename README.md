@@ -7,10 +7,10 @@ A game training your memory. The rules are simple: flip over cards to reveal the
   <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/easy.png"/>
 
   * Medium  
-  * <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/medium.png"/>
+  <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/medium.png"/>
 
   * Hard  
-  * <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/hard.png"/>  
+  <img src="https://github.com/pmusielak/Memory_Cards_Game/blob/8ddf31eb7638972f7e558a3cc6954e78eeec7e0f/github_files/hard.png"/>  
 * Seperate gamemode to compete with a friend
 * Move counter
 * Menu  
